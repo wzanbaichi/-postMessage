@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input {
+            width: 10%;
+            float: left;
+            margin: 0px;
+            padding: 0;
+        }
+        iframe {
+            margin-top: -3px;
+            width: 40%;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>使用降域实现跨域</h1>
+    <input type="text" placeholder='http://a.lck.com:8080/降域.html'>
+</div>
+<iframe src="http://b.lck.com:8080/b.html" frameborder="0"></iframe>
+<script>
+    document.querySelector('input').addEventListener('input',function(){
+      console.log(this.value);
+      window.frames[0].document.querySelector('input').value = this.value
+    })
+    document.domain = "lck.com"
+</script>
+</body>
+</html>
